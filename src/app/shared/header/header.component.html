@@ -1,13 +1,21 @@
-<nav class=" header navbar navbar-expand-lg ">
-    <a class="navbar-brand" href="#">TripsDiaz</a>
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link " href="#">Rooms</a>
-        <a class="nav-item nav-link" href="#">Features</a>
-        <button id="login" type="button" class="btn btn-secondary btn-lg ">Log In</button>
+<header class="p-3 border-bottom">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <img height="70" width="70" src="https://res.cloudinary.com/ddhrew5cw/image/upload/v1675943458/GoTravel/go_travel_1_lblji5.png" >
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a class="nav-link px-2 text-secondary" routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a class="nav-link px-2 text-secondary" routerLink="/room/getRooms" routerLinkActive="active">Rooms</a></li>
+      </ul>
+
+      <div class="text-end">
+        <button type="button" class="btn boton">Login</button>
+        <button type="button" class="btn" id="search">Sign-up</button>
       </div>
+
     </div>
-  </nav>
+  </div>
+</header>
