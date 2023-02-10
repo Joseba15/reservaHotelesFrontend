@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
+import { LoginComponent } from './login/login/login.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: 'room',
     loadChildren: () => import('./room/room.module').then( m => m.RoomModule)
+  },
+
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 
   {
