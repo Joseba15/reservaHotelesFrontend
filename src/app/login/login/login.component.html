@@ -1,20 +1,30 @@
 <div class="row d-flex  main">
   <div class="card">
     <h2 class="login">Log In</h2>
-    <form class="formulario">
+    <form class="formulario" (ngSubmit)="save()" #myForm="ngForm" autocomplete="off">
       <!-- Email input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="form2Example1">Username</label>
-        <input type="text" id="form2Example1" class="form-control" />
+        <input type="text" id="form2Example1" class="form-control" 
+        [ngModel]="userData.username"
+        name="username"
+        minlength="3"
+        required/>
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="form2Example2">Password</label>s
-        <input type="password" id="form2Example2" class="form-control" />
+        <input type="password" id="form2Example2" class="form-control"
+        [ngModel]="userData.password"
+        name="password"
+        minlength="4" 
+        required/>
       </div>
 
-      <!-- 2 column grid layout for inline styling -->
+
+
+
       <div class="row mb-4">
         <div class="col d-flex justify-content-center">
           <!-- Checkbox -->

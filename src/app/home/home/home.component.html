@@ -20,7 +20,7 @@
                         placeholder=" "
                         formControlName="entryDate">
 
-                <span class="form-text text-danger" *ngIf=" myForm.get('entryDate')?.errors"> 
+                <span class="form-text text-danger" *ngIf="myForm.invalid"> 
                     La fecha de entrada no puede ser antes de la fecha actual </span>
             </div>
 
@@ -32,7 +32,8 @@
                         placeholder=" "
                         formControlName="exitDate">
 
-                <span class="form-text text-danger" *ngIf=" myForm.get('exitDate')?.errors"> Debe de ser mayor que cero </span>
+                <span class="form-text text-danger" *ngIf=" myForm.get('exitDate')?.errors"> 
+                    La fecha de salida no puede ser antes de la fecha actual </span>
             </div>
 
             <!-- Campo de numero de personas -->
@@ -40,7 +41,8 @@
                 <input type="number"
                         class="form-control"
                         placeholder="Amount of people "
-                        formControlName="numPeople">
+                        formControlName="numPeople"
+                        min="0">
 
                 <span class="form-text text-danger" *ngIf=" myForm.get('numPeople')?.errors">  </span>
             </div>  
