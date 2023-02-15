@@ -9,7 +9,8 @@
                         placeholder="Where are you going to stay?"
                         formControlName="place">
                         
-                <span class="form-text text-danger" *ngIf=' myForm.get("place")?.invalid'> Debe de ser de 3 letras </span>
+                <span class="form-text text-danger" *ngIf=' myForm.get("place")?.invalid &&
+                myForm.get("place")?.touched '> Debe de ser de 3 letras </span>
             </div>
 
 
@@ -20,7 +21,8 @@
                         placeholder=" "
                         formControlName="entryDate">
 
-                <span class="form-text text-danger" *ngIf="myForm.invalid"> 
+                <span class="form-text text-danger" *ngIf="myForm.get('entryDate')?.errors &&
+                myForm.get('entryDate')?.touched "> 
                     La fecha de entrada no puede ser antes de la fecha actual </span>
             </div>
 
@@ -32,7 +34,8 @@
                         placeholder=" "
                         formControlName="exitDate">
 
-                <span class="form-text text-danger" *ngIf=" myForm.get('exitDate')?.errors"> 
+                <span class="form-text text-danger" *ngIf=" myForm.get('exitDate')?.errors &&
+                myForm.get('exitDate')?.touched"> 
                     La fecha de salida no puede ser antes de la fecha actual </span>
             </div>
 
@@ -44,7 +47,8 @@
                         formControlName="numPeople"
                         min="0">
 
-                <span class="form-text text-danger" *ngIf=" myForm.get('numPeople')?.errors">  </span>
+                <span class="form-text text-danger" *ngIf=" myForm.get('numPeople')?.errors &&
+                myForm.get('numPeople')?.touched"> </span>
             </div>  
 
 

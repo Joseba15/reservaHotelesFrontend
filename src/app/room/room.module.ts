@@ -6,6 +6,8 @@ import { DelRoomComponent } from './del-room/del-room.component';
 import { UpdateRoomComponent } from './update-room/update-room.component';
 import { GetRoomComponent } from './get-room/get-room.component';
 import { RoomRoutingModule } from './room-routing.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +22,9 @@ import { RoomRoutingModule } from './room-routing.module';
 
   imports: [
     CommonModule,
-    RoomRoutingModule
+    RoomRoutingModule,
+    RouterModule,
+    FormsModule,
   ]
 })
 export class RoomModule { }
