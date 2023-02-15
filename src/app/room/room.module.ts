@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     RoomRoutingModule,
     RouterModule,
     FormsModule,
+
   ]
 })
 export class RoomModule { }

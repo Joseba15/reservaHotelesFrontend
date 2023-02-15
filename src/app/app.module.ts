@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { RoomModule } from './room/room.module';
 import { HotelModule } from './hotel/hotel.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { HotelModule } from './hotel/hotel.module';
     RoomModule,
     HotelModule,
     HomeModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule,
+  
   ],
   
   providers: [],
