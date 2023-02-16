@@ -1,22 +1,31 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   @ViewChild('myForm') myForm!: NgForm; 
 
 
   userData={
     username: "",
-    password: ""
+    password: "",
+    name: "",
+    email:"",
+    city:"",
+    phone:0,
+    role:"",
+    enable:false,
+    verificartionCode:0,
+    img:""
   }
-  
+
   constructor() { }
 
   ngOnInit(): void {

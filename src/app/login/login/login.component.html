@@ -10,6 +10,10 @@
         name="username"
         minlength="3"
         required/>
+        <span class="form-text text-danger" 
+                           *ngIf="notValidUsername()">
+                          username must be greater than 3 and  required
+                    </span>
       </div>
 
       <!-- Password input -->
@@ -18,8 +22,12 @@
         <input type="password" id="form2Example2" class="form-control"
         [ngModel]="userData.password"
         name="password"
-        minlength="4" 
+        minlength="3" 
         required/>
+        <span class="form-text text-danger" 
+                           *ngIf="notValidPassword()">
+                           password must be greater than 3 and required                    
+        </span>
       </div>
 
 

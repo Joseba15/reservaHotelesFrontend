@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class RoomService {
 
-  private url:string= 'http://localhost:3306/room';
+  private url:string= 'http://localhost:8080/getRooms';
 
 
   constructor(private http:HttpClient) { }
