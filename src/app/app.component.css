@@ -1,27 +1,21 @@
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.20fr 1fr 0.4fr;
-    grid-template-areas: "header"
-                         "container"
-                         "footer";
     height: 100vh;
     margin: 0em;
 
-    /* background-color: rgb(178, 173, 173); */
+   
 }
 
-.header{
+/* .header{
     grid-area: header;
-}
-
+} */
+/* 
 .container{
     grid-area: container;
 
-}
+} */
 
-.footer{
+/* .footer{
     grid-area: footer;
     position:fixed;
 
-}
+} */

@@ -10,6 +10,7 @@ import { LoginModule } from './login/login.module';
 import { RoomModule } from './room/room.module';
 import { HotelModule } from './hotel/hotel.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     RoomModule,
     HotelModule,
     HomeModule,
+    UserModule,
     LoginModule,
     HttpClientModule,
   
