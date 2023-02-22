@@ -9,8 +9,12 @@ import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { RoomModule } from './room/room.module';
 import { HotelModule } from './hotel/hotel.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserModule } from './user/user.module';
+import { TokenGuard } from './guards/token.guard';
+import { AuthinterceptorInterceptor } from './login/authinterceptor.interceptor';
+import { RolGuard } from './guards/rol.guard';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +32,11 @@ import { UserModule } from './user/user.module';
     UserModule,
     LoginModule,
     HttpClientModule
-  ],
-  
-  providers: [],
+  ], providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthinterceptorInterceptor,
+    multi: true
+  },RolGuard,TokenGuard,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
