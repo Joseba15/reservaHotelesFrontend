@@ -1,31 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
-import { User } from '../interfaces/user.interface';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-get-users',
   templateUrl: './get-users.component.html'
 })
-export class GetUsersComponent implements OnInit {
+export class GetUsersComponent implements OnInit,OnDestroy {
+
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private userService : UserService) { }
 
 
-  listaUsers:User[] = [];
+  listaUsers:any[] = [];
   error:boolean = true;
 
   ngOnInit(): void {
-    this.getUsers();
-  }
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
 
-  getUsers(){
     this.userService.getUsers()
     .subscribe({
       next: (resp) => {
-        this.listaUsers = resp
+        
+        this.listaUsers = resp.content
         this.error = false;
+                this.dtTrigger.next(this.listaUsers);
+
       }
     })
+    
+  }
+
+
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
 
 

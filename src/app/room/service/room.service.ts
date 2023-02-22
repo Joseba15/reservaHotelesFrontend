@@ -23,4 +23,10 @@ export class RoomService {
     return this.http.get<Room[]>(`${this.url}`) 
   }
 
+  addRoom(room : Room):Observable<Room>{
+    return this.http.post<Room>(this.url,room)
+  }
+
+  // delRoom()
+
 }

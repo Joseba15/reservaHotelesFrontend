@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user.interface';
 import { Observable } from 'rxjs';
+import { Pageable } from '../interfaces/pageable.interface';
 
 
 @Injectable({
@@ -17,8 +18,8 @@ export class UserService {
     return this.http.get<User>(`${this.url}${query}`) 
   }
 
-  getUsers():Observable<User[]> {
-    return this.http.get<User[]>(`${this.url}`) 
+  getUsers():Observable<Pageable> {
+    return this.http.get<Pageable>(`${this.url}`) 
   }
 
 }

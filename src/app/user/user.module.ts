@@ -8,6 +8,7 @@ import { UserRoutingModule } from './user.routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,7 +24,8 @@ import { DataTablesModule } from 'angular-datatables';
     UserRoutingModule,
     RouterModule,
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    HttpClientModule
   ]
 })
 export class UserModule { }
