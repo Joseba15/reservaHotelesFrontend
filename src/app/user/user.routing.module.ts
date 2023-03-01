@@ -5,6 +5,7 @@ import { GetuserComponent } from './getuser/getuser.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { DelUserComponent } from './del-user/del-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+// import { RolGuard } from '../guards/rol.guard';
 const routes: Routes = [
     {
       path: '',
@@ -18,7 +19,7 @@ const routes: Routes = [
       ] 
     }
   ];
-  
+  // canActivate:[RolGuard]
   @NgModule({
     imports: [
       RouterModule.forChild(routes)

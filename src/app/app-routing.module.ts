@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login/login.component';
 
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { UserModule } from './user/user.module';
+import { RegisterComponent } from './register/register/register.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '**',

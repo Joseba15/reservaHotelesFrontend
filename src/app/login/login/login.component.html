@@ -1,7 +1,7 @@
 <div class="row d-flex  main">
   <div class="card">
     <h2 class="login">Log In</h2>
-    <form class="formulario" (ngSubmit)="save()" #myForm="ngForm" autocomplete="off">
+    <form class="formulario" (ngSubmit)="signIn()" #myForm="ngForm" autocomplete="off">
       <!-- Email input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="form2Example1">Username</label>
@@ -13,12 +13,12 @@
         <span class="form-text text-danger" 
                            *ngIf="notValidUsername()">
                           username must be greater than 3 and  required
-                    </span>
+        </span>
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="form2Example2">Password</label>s
+        <label class="form-label" for="form2Example2">Password</label>
         <input type="password" id="form2Example2" class="form-control"
         [ngModel]="userData.password"
         name="password"
@@ -35,11 +35,11 @@
 
 
       <!-- Submit button -->
-      <button type="button" class="btn btn-dark btn-block mb-4 boton">Sign in</button>
+      <button type="submit" class="btn btn-dark btn-block mb-4 boton">Sign in</button>
 
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Not a member? <a href="#!">Register</a></p>
+        <p>Don't have a account? <a href="#" [routerLink]="['../register']"> Register here!</a></p>
       </div>
       
     </form>

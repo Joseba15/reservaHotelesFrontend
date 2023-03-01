@@ -14,6 +14,7 @@ import { UserModule } from './user/user.module';
 import { TokenGuard } from './guards/token.guard';
 import { AuthinterceptorInterceptor } from './login/authinterceptor.interceptor';
 import { RolGuard } from './guards/rol.guard';
+import { RegisterModule } from './register/register.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RolGuard } from './guards/rol.guard';
     HomeModule,
     UserModule,
     LoginModule,
-    HttpClientModule
+    HttpClientModule,
+    RegisterModule
   ], providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthinterceptorInterceptor,
