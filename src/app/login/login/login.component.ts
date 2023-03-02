@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   constructor(private loginService : LoginService, private route: Router) { }
 
   ngOnInit(): void {
+    if(this.loginService.isLoggedIn){
+      this.route.navigateByUrl("")
+    }
   }
 
   notValidUsername(): boolean{
@@ -49,7 +52,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn():void{
-    console.log(this.myForm.value.username,this.myForm.value.password);
+    // console.log(this.myForm.value.username,this.myForm.value.password);
   
     this.loginService.login(this.myForm.value.username,this.myForm.value.password)
     .subscribe({

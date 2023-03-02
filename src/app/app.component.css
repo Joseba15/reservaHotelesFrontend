@@ -1,21 +1,5 @@
 .grid-container {
-    height: 100vh;
-    margin: 0em;
-
-   
+    position: relative;
+    min-height: 100vh;
 }
 
-/* .header{
-    grid-area: header;
-} */
-/* 
-.container{
-    grid-area: container;
-
-} */
-
-/* .footer{
-    grid-area: footer;
-    position:fixed;
-
-} */

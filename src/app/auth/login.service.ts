@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, of, switchMap, Observable } from 'rxjs';
+import { catchError, of, switchMap, Observable, BehaviorSubject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { TokenInterface } from '../login/interfaces/token.interface';
 
@@ -12,12 +12,17 @@ import { TokenInterface } from '../login/interfaces/token.interface';
 export class LoginService {
 
   private url:string= 'http://localhost:8080/signin';
+  private loggedIn = new BehaviorSubject<boolean> (false);
+  private isAdmin = new BehaviorSubject<boolean> (false);
 
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  get isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
 
   constructor(private http: HttpClient, private cookies:CookieService) { }
 
