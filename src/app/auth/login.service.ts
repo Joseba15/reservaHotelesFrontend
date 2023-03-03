@@ -24,7 +24,11 @@ export class LoginService {
     return this.loggedIn.asObservable();
   }
 
-  constructor(private http: HttpClient, private cookies:CookieService) { }
+  constructor(private http: HttpClient, private cookies:CookieService) {
+    // if (this.cookies.get('token')) {
+    //   this.isLoggedIn.
+    // }
+   }
 
 
 
@@ -33,14 +37,19 @@ export class LoginService {
     return this.http.post<TokenInterface>(this.url,{"username":username,"password":password}, this.httpOptions)
     .pipe(  switchMap(token=> {
       this.cookies.set('token',token.token);
+      this.loggedIn.next(true);
       return of (true);
+      
     }),catchError(error =>{
       this.cookies.delete('token');
+      this.loggedIn.next(false);
+
       return of (false);
     }))
   }
 
   logout(){
+    this.loggedIn.next(false);
     this.cookies.delete('token');
   }
 
