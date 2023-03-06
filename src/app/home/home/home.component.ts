@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,ValidationErrors,Validators } from '@angular/forms';
 
 @Component({
@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
+  @Output() onSearch : EventEmitter<string> = new EventEmitter();
+
+
   ngOnInit(): void {
   }
 
@@ -31,7 +34,7 @@ export class HomeComponent implements OnInit {
       return null;
   }
 
-  save(){
+  search(){
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();  
     }
@@ -41,7 +44,7 @@ export class HomeComponent implements OnInit {
       exitDate: '',
       numPeople:0,
     })
-
+    this.onSearch.emit(this.myForm.value.place)
   }
 
 }

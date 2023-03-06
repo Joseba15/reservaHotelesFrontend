@@ -1,14 +1,21 @@
 <div>
     <h2>Where are you going to stay?</h2>
-    <form (ngSubmit)="save()" [formGroup]="myForm" autocomplete="off">
+    <form (ngSubmit)="search()" [formGroup]="myForm" autocomplete="off">
         <div  class="row">
             <!-- Campo de lugar de estancia -->
             <div class="col-sm-4">
-                <fieldset></fieldset>
-                <input type="text"
-                        class="form-control"
-                        placeholder="City "
-                        formControlName="place">
+                <fieldset>Stay</fieldset>
+                    <div>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                    </svg> -->
+                    <input type="text"
+                            class="form-control"
+                            placeholder="Where you going ? "
+                            name="place"
+                            formControlName="place"
+                            >
+                    </div>    
                         
                 <span class="form-text text-danger" *ngIf=' myForm.get("place")?.invalid &&
                 myForm.get("place")?.touched '> Debe de ser de 3 letras </span>
@@ -17,9 +24,11 @@
 
             <!-- Campo de entrada de fecha -->
             <div class="col-sm-2">
+                <fieldset>Entry Date</fieldset>
                 <input type="date"
                         class="form-control"
                         placeholder=" "
+                        name="entryDate"
                         formControlName="entryDate">
 
                 <span class="form-text text-danger" *ngIf="myForm.get('entryDate')?.errors &&
@@ -30,9 +39,11 @@
 
             <!-- Campo de salida de fecha -->
             <div class="col-sm-2">
+                <fieldset>Exit Date</fieldset>
                 <input type="date"
                         class="form-control"
                         placeholder=" "
+                        name="exitDate"
                         formControlName="exitDate">
 
                 <span class="form-text text-danger" *ngIf=" myForm.get('exitDate')?.errors &&
@@ -42,9 +53,11 @@
 
             <!-- Campo de numero de personas -->
             <div class="col-sm-3">
+                <fieldset>Amount People</fieldset>
                 <input type="number"
                         class="form-control"
                         placeholder="Amount of people "
+                        name="numPeople"
                         formControlName="numPeople"
                         min="0">
 
@@ -54,7 +67,7 @@
 
 
             <!-- Boton de Submit -->
-            <div class="col-sm-1">
+            <div id="busqueda" class="col-sm-1">
                 <button type="submit"
                 class="btn btn-primary float-end"
                 [disabled]="myForm.invalid"
