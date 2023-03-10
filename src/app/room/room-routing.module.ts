@@ -11,11 +11,11 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'getRoom', component: GetRoomComponent },
+      { path: 'getRoom/:id', component: GetRoomComponent },
       { path: 'getRooms', component: GetRoomsComponent },
       { path: 'addRoom', component: AddRoomComponent },
       { path: 'delRoom', component: DelRoomComponent },
-      { path: 'updateRoom', component: UpdateRoomComponent },
+      { path: 'updateRoom/:id', component: UpdateRoomComponent },
     ] 
   }
 ];

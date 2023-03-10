@@ -9,28 +9,33 @@ import { Observable } from 'rxjs';
 })
 export class RoomService {
 
-  private url:string= 'http://localhost:8080/room';
-
+  private url:string= 'https://gotravelapi-production.up.railway.app/room';
 
   constructor(private http:HttpClient) { }
 
 
-  getRoom(query:string):Observable<Room> {
-    return this.http.get<Room>(`${this.url}${query}`) 
+  getRoom(query:number):Observable<Room> {
+    return this.http.get<Room>(`${this.url}/${query}`) 
   }
 
   getRooms():Observable<Room[]> {
     return this.http.get<Room[]>(`${this.url}`) 
   }
 
-  // getRoomsbyName(place:string):Observable<Room[]> {
-  //   return this.http.get<Room[]>(`${this.url}${place}`) 
-  // }
+  updateRoom(id:number,json:any,foto :File):Observable<Room>{
+      const datos: FormData = new FormData();
+      datos.append('room', new Blob([JSON.stringify(json)], {type: 'application/json'}))
+      datos.append('file', foto, foto.name);
+      return this.http.put<Room>(`${this.url}/${id}`,datos)
+  }
 
   addRoom(room : Room):Observable<Room>{
     return this.http.post<Room>(this.url,room)
   }
 
-  // delRoom()
+  delRoom(query:number):Observable<Room>{
+    return this.http.delete<Room>(`${this.url}/${query}`) 
+    
+  }
 
 }

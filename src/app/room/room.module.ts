@@ -7,7 +7,7 @@ import { UpdateRoomComponent } from './update-room/update-room.component';
 import { GetRoomComponent } from './get-room/get-room.component';
 import { RoomRoutingModule } from './room-routing.module';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     RoomRoutingModule,
     RouterModule,
     FormsModule,
-
+    ReactiveFormsModule
+    
   ]
 })
 export class RoomModule { }

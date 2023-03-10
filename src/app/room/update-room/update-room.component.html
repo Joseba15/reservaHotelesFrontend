@@ -1,1 +1,109 @@
-<p>update-room works!</p>
+<div class="row d-flex  main">
+    <div class="card">
+      <h2 class="login">Update Room</h2>
+      <form class="formulario" (ngSubmit)="onUpdate()" [formGroup]="myForm"autocomplete="off">
+        
+   
+  
+        <!-- Rating input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Rating</label>
+          <input type="number" id="form2Example2" class="form-control"
+          formControlName="rating"
+          [placeholder]="room.rating"
+          name="rating"
+          min="0"
+          max="5" 
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf="isValidField('rating')">
+                            rating must be less than 6 and be required                    
+                            </span>
+        </div>
+  
+  
+        <!-- Price input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Price</label>
+          <input type="number" id="form2Example2" class="form-control"
+          formControlName="price"
+          [placeholder]="room.price"
+          name="price"
+          min="0"
+          max="1000"
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf="isValidField('price')">
+                             Name must be less than 1000 and be required                    
+          </span>
+        </div>
+  
+
+        <!-- NumBed input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Number of Bed</label>
+          <input type="number" id="form2Example2" class="form-control"
+          formControlName="numBed"
+          [placeholder]="room.numBed"
+          name="numBed"
+          max="5"
+          min="0"
+          required/>
+          <span class="form-text text-danger" 
+                              *ngIf="isValidField('numBed')">
+                              Amount of beds must be less than 6 and be required                    
+          </span>
+        </div>
+
+
+        <!-- Avaliable input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Avaliable</label>
+          <input type="number" id="form2Example2" class="form-control"
+          formControlName="avaliable"
+          [placeholder]="room.avaliable"
+          name="avaliable"
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf="isValidField('avaliable')">
+                             Avaliable must be required                    
+          </span>
+        </div>
+      
+        
+        <!-- CodHotel input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Hotel</label>
+            <input type="number" id="form2Example2" class="form-control"
+            formControlName="codHotel"
+            [placeholder]="room.codHotel.codHotel"
+            name="codHotel"
+            min="0"
+            required/>
+            <span class="form-text text-danger" 
+                               *ngIf="isValidField('codHotel')">
+                               Hotel must be required                    
+            </span>
+          </div>
+        
+
+        <!-- File input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">File</label>
+            <input type="file" id="form2Example1" class="form-control" 
+            formControlName="fileSource"
+            name="file"
+            (change)="onFileChange($event)"
+            />
+          
+          </div>
+
+      
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-dark btn-block mb-4 boton">Update</button>
+
+        
+      </form>
+    </div>
+  </div>

@@ -18,7 +18,8 @@ export class RegisterComponent {
     password: "",
     name:"",
     email:"",
-    city:""
+    city:"" ,
+    file: ""
   }
   isLoggedIn!: boolean;
 

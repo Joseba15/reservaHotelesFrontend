@@ -9,3 +9,17 @@
     padding: 10px;
     border-radius: 7%;
 }
+
+#edit{
+    margin-left: 100px;
+    background-color: black;
+    border-color: white;
+    color: white;
+}
+
+#delete{
+    margin-left: 10px;
+    background-color: black;
+    border-color: white;
+    color: white;
+}

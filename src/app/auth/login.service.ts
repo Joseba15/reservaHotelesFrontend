@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, of, switchMap, Observable, BehaviorSubject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { TokenInterface } from '../login/interfaces/token.interface';
-import * as jwt_decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import { DecodeToken } from './decodetoken.interface';
 
 
@@ -13,10 +13,11 @@ import { DecodeToken } from './decodetoken.interface';
 })
 export class LoginService {
 
-  private url:string= 'http://localhost:8080/signin';
+  private url:string= 'https://gotravelapi-production.up.railway.app/signin';
   private loggedIn = new BehaviorSubject<boolean> (false);
   private adminIn = new BehaviorSubject<boolean> (false);
- 
+  // private getRol! : string ;
+  // private isLogin! : string;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -40,11 +41,19 @@ export class LoginService {
 
     return this.http.post<TokenInterface>(this.url,{"username":username,"password":password}, this.httpOptions)
     .pipe(  switchMap(token=> {
+
       this.cookies.set('token',token.token);
-      if (this.decodeJwt(token.token).role=='ADMIN') {
-        this.adminIn.next(true);
+      this.cookies.set('role',this.decodeJwt(token.token).role)
+      this.cookies.set('login','true');
+
+      // this.isLogin = this.cookies.get('login')
+      // this.getRol= this.cookies.get('role')
+      // if (this.getRol=='ADMIN') {
+      // }
+      if(this.decodeJwt(token.token).role=='ADMIN'){
+          this.adminIn.next(true);
       }
-      this.loggedIn.next(true);
+       this.loggedIn.next(true);
       return of (true);
       
     }),catchError(error =>{
@@ -59,6 +68,7 @@ export class LoginService {
     this.loggedIn.next(false);
     this.adminIn.next(false);
     this.cookies.delete('token');
+    this.cookies.delete('role');
   }
 
   decodeJwt(jwt: string): DecodeToken {        

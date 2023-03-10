@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
   constructor(private loginService : LoginService, private route: Router) { }
 
   ngOnInit(): void {
-    // if(this.loginService.isLoggedIn){
-    //   this.route.navigateByUrl("")
-    // }
+    //  if(this.loginService.isLoggedIn){
+    //    this.route.navigateByUrl("")
+    //  }
   }
 
   notValidUsername(): boolean{

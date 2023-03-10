@@ -5,5 +5,6 @@ export interface Room{
     price: number,
     numBed: number,
     avaliable: boolean,
+    img:string,
     codHotel: Hotel,
 }

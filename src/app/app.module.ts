@@ -12,9 +12,9 @@ import { HotelModule } from './hotel/hotel.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { TokenGuard } from './guards/token.guard';
-import { AuthinterceptorInterceptor } from './login/authinterceptor.interceptor';
 import { RolGuard } from './guards/rol.guard';
 import { RegisterModule } from './register/register.module';
+import { AuthInterceptorService } from './authinterceptor.interceptor';
 
 
 @NgModule({
@@ -36,9 +36,9 @@ import { RegisterModule } from './register/register.module';
     RegisterModule
   ], providers: [{
     provide: HTTP_INTERCEPTORS,
-    useClass: AuthinterceptorInterceptor,
+    useClass: AuthInterceptorService,
     multi: true
-  },RolGuard,TokenGuard,],
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

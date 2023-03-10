@@ -1,0 +1,17 @@
+#cardRoom{
+    min-width: 1000px; 
+    min-height: 220px;
+    margin-left: 100px;
+    margin-right: 200px;
+    margin-top: 20px;
+}
+
+.imagen{
+    padding: 10px;
+    border-radius: 7%;
+}
+
+#rating{
+    
+    border-color: black;
+}

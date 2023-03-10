@@ -10,7 +10,7 @@ import { Pageable } from '../interfaces/pageable.interface';
 })
 export class UserService {
 
-  private url:string= 'http://localhost:8080/user';
+  private url:string= 'https://gotravelapi-production.up.railway.app/user';
 
   constructor(private http:HttpClient) { }
 

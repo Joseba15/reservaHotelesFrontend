@@ -1,1 +1,21 @@
-<p>get-room works!</p>
+<div class="card mb-3" id="cardRoom">
+    <div class="row g-0" id="">
+
+      <div class="col-md-4">
+        <img src={{room.img}}
+        class="img-fluid rounded-start imagen" alt="...">
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{room.codHotel.name}}</h3>
+          <p> Country : {{room.codHotel.country}}</p> <p> City : {{room.codHotel.city}}</p>
+          <p> Rating : {{room.rating}}</p>
+          <p>{{room.numBed}} Beds</p>
+          <p class="card-text" ><b>{{room.price}}€</b></p>
+          <button class="btn" id="search" routerLink="../getRoom/{{room.codRoom}}">Reserve Now!</button>
+        </div>
+      </div>
+    </div>
+
+</div>
